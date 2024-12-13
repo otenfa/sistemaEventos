@@ -1,9 +1,13 @@
 package com.sumauma.sistemaEventos.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +20,9 @@ public class Participante {
 	
 	private String nome;
 	private String email;
+	
+	@ManyToMany(mappedBy = "participantes")
+	private Set<Atividade> atividades = new HashSet<>();
 	
 	public Participante() {		
 	}
